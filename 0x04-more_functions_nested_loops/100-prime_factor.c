@@ -5,7 +5,9 @@
 * factor of the number 612852475143
 * Return: Always 0
 */
+
 int main(void)
+
 {
 		long prime = 612852475143, div;
 
