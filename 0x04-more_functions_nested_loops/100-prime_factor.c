@@ -21,7 +21,7 @@ int main(void)
 		for (div = 3; div < (prime / 2); div += 2)
 		{
 		if ((prime % div) == 0)
-																					prime /= div;
+			prime /= div;
 		}
 		}
 		printf("%ld\n", prime);
