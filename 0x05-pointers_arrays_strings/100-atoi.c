@@ -1,40 +1,35 @@
 #include "main.h"
 
 /**
-* _atoi - convert string to integer
-* @s: the string
-*
-* Return: converted value or 0 on error
-*/
+ * _atoi - convert string to integer
+ * @s: pointer to convert
+ * Return: integer (Success)
+ */
 int _atoi(char *s)
 {
-	int num_pos = 0, num_neg = 0, n = 0, i;
+	int c = 0;
+	unsigned int ni = 0;
+	int min = 1;
+	int isi = 0;
 
-	for (i = 0; s[i]; i++)
+	while (s[c])
 	{
-		if (s[i] == '+')
-			num_pos++;
-		if (s[i] >= '0' && s[i] <= '9')
+		if (s[c] == 45)
+		{
+			min *= -1;
+		}
+		while (s[c] >= 48 && s[c] <= 57)
+		{
+			isi = 1;
+			ni = (ni * 10) + (s[c] - '0');
+			c++;
+		}
+		if (isi == 1)
+		{
 			break;
-
+		}
+		c++;
 	}
-	for (i = 0; s[i]; i++)
-	{
-		if (s[i] == '-')
-			num_neg++;
-		if (s[i] >= '0' && s[i] <= '9')
-			break;
-	}
-
-	for (i = 0; s[i]; i++)
-	{
-		if (s[i] >= '0' && s[i] <= '9')
-			n = n * 10 + (s[i] - '0');
-		else if (n != 0)
-			break;
-	}
-	if (num_neg > num_pos)
-		return (n * -1);
-
-	return (n);
+	ni *= min;
+	return (ni);
 }
